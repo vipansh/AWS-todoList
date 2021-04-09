@@ -4,6 +4,8 @@ import Amplify, { API, graphqlOperation } from 'aws-amplify'
 import { createTodo, updateTodo, deleteTodo } from './graphql/mutations'
 import { listTodos } from './graphql/queries'
 import { withAuthenticator } from '@aws-amplify/ui-react'
+import { AmplifySignOut} from "@aws-amplify/ui-react";
+
 import awsExports from "./aws-exports";
 Amplify.configure(awsExports);
 
@@ -98,7 +100,8 @@ const App = () => {
 
   return (
     <div style={styles.container}>
-      <h2>Amplify Todos</h2>
+      <h2>Amplify Todos</h2> 
+      <AmplifySignOut button-text="SignOut"></AmplifySignOut>
       {inEditBox ? <div>  <input
         onChange={event => setInput('name', event.target.value)}
         
